@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 void main() {
   runApp(MyApp());
+  class MyWidget extends StatelessWidget {
+  Widget build(BuildContext context) {
+  return new IconButton(
+  // Use the MdiIcons class for the IconData
+  icon: new Icon(MdiIcons.sword),
+  onPressed: () { print('Using the sword'); }
+
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: DicePage(),
-      ),
     );
   }
 }
-
+}
 class DicePage extends StatefulWidget {
   @override
   _DicePageState createState() => _DicePageState();
+}
+
+class StatefulWidget {
 }
 
 class _DicePageState extends State<DicePage> {
