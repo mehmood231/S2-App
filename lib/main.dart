@@ -2,29 +2,59 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:contactus/contactus.dart';
 import 'package:flutter/material.dart';
-void main() {
-  public class SimpleSplashScreen implements SplashScreen {
-  @Override
-  @Nullable
-  public View createSplashView(
-  @NonNull Context context,
-  @Nullable Bundle savedInstanceState
-  ) {
-  // Return a new MySplashView without saving a reference, because it
-  // has no state that needs to be tracked or controlled.
-  return new MySplashView(context);
-  }
+import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
+void main(){
+  runApp(new MaterialApp(
+    home: new MyApp(),
+  ));
+}
 
-  @Override
-  public void transitionToFlutter(@NonNull Runnable onTransitionComplete) {
-  // Immediately invoke onTransitionComplete because this SplashScreen
-  // doesn't display a transition animation.
-  //
-  // Every SplashScreen *MUST* invoke onTransitionComplete at some point
-  // for the splash system to work correctly.
-  onTransitionComplete.run();
-  }
 
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+        seconds: 14,
+        navigateAfterSeconds: new AfterSplash(),
+        title: new Text('MEHMOOD AHMAD(SP17-BCS-026)',
+          style: new TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0
+          ),),
+        image: new Image.assests('image/your-image.jpg'),
+        backgroundColor: Colors.white,
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 100.0,
+        onClick: ()=>print("SP17-BCS-026"),
+        loaderColor: Colors.red
+    );
+  }
+}
+
+class AfterSplash extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+          title: new Text("Welcome In SplashScreen Package"),
+          automaticallyImplyLeading: false
+      ),
+      body: new Center(
+        child: new Text("Done!",
+          style: new TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30.0
+          ),),
+
+      ),
+    );
+  }
 }
 class DicePage extends StatefulWidget {
   @override
