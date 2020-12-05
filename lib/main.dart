@@ -23,7 +23,22 @@ class DicePage extends StatefulWidget {
 
 class StatefulWidget {
 }
+import 'dart:io';
 
+@override
+Widget build(BuildContext context) {
+  return new Scaffold(
+      appBar: new AppBar(
+        title: new Text(widget.title),
+      ),
+      body: new ... (...),
+  floatingActionButton: new FloatingActionButton(
+  onPressed: ()=> exit(0),
+  tooltip: 'Close app',
+  child: new Icon(Icons.close),
+  ),
+  );
+}
 class _DicePageState extends State<DicePage> {
   var x =1;
   void changeFace(){
