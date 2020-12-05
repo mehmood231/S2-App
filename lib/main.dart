@@ -1,62 +1,30 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:contactus/contactus.dart';
 import 'package:flutter/material.dart';
 void main() {
-  import 'package:flutter/material.dart';
-
-  void main() => runApp(MyApp());
-
-  class MyApp extends StatelessWidget {
-  final appTitle = 'Drawer Demo';
-
-  @override
-  Widget build(BuildContext context) {
-  return MaterialApp(
-  title: appTitle,
-  home: MyHomePage(title: appTitle),
-  );
+  public class SimpleSplashScreen implements SplashScreen {
+  @Override
+  @Nullable
+  public View createSplashView(
+  @NonNull Context context,
+  @Nullable Bundle savedInstanceState
+  ) {
+  // Return a new MySplashView without saving a reference, because it
+  // has no state that needs to be tracked or controlled.
+  return new MySplashView(context);
   }
+
+  @Override
+  public void transitionToFlutter(@NonNull Runnable onTransitionComplete) {
+  // Immediately invoke onTransitionComplete because this SplashScreen
+  // doesn't display a transition animation.
+  //
+  // Every SplashScreen *MUST* invoke onTransitionComplete at some point
+  // for the splash system to work correctly.
+  onTransitionComplete.run();
   }
-  class MyHomePage extends StatelessWidget {
-  final String title;
 
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-  return Scaffold(
-  appBar: AppBar(title: Text(title)),
-  body: Center(child: Text('My Page!')),
-  drawer: Drawer(
-
-  child: ListView(
-  padding: EdgeInsets.zero,
-  children: <Widget>[
-  DrawerHeader(
-  child: Text('Drawer Header'),
-  decoration: BoxDecoration(
-  color: Colors.blue,
-  ),
-  ),
-  ListTile(
-  title: Text('Item 1'),
-  onTap: () {
-
-  Navigator.pop(context);
-  },
-  ),
-  ListTile( title: Text('Item 2'),
-  onTap: () {
-
-  Navigator.pop(context);
-  },
-  ),
-  ],
-  ),
-  ),
-  );
-  }
-  }
 }
 class DicePage extends StatefulWidget {
   @override
