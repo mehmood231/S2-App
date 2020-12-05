@@ -1,20 +1,31 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:contactus/contactus.dart';
+import 'package:flutter/material.dart';
 void main() {
-  runApp(MyApp());
-  class MyWidget extends StatelessWidget {
+  class MyApp extends StatelessWidget {
+  @override
   Widget build(BuildContext context) {
-  return new IconButton(
-  // Use the MdiIcons class for the IconData
-  icon: new Icon(MdiIcons.sword),
-  onPressed: () { print('Using the sword'); }
-
-}
-
-    );
+  return MaterialApp(
+  debugShowCheckedModeBanner: false,
+  home: Scaffold(
+  backgroundColor: Colors.teal,
+  body: ContactUs(
+  logo: AssetImage('images/crop.jpg'),
+  email: 'adoshi26.ad@gmail.com',
+  companyName: 'Abhishek Doshi',
+  phoneNumber: '+91123456789',
+  website: 'https://abhishekdoshi.godaddysites.com',
+  githubUserName: 'AbhishekDoshi26',
+  linkedinURL: 'https://www.linkedin.com/in/abhishek-doshi-520983199/',
+  tagLine: 'Flutter Developer',
+  twitterHandle: 'AbhishekDoshi26',
+  instagramUserName: '_abhishek_doshi',
+  ),
+  ),
+  );
   }
-}
+  }
 }
 class DicePage extends StatefulWidget {
   @override
